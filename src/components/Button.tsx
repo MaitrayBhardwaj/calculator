@@ -9,7 +9,7 @@ interface ButtonProps {
 const Button = (props: ButtonProps) => {
 	const { label, type, onClick } = props
 	return (
-		<button className={`${type} calc-btn`} onClick={onClick}>
+		<button className={`calc-btn ${type}`} onClick={onClick}>
 			{label}
 		</button>
 	)

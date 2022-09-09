@@ -24,18 +24,32 @@ function App() {
 		handleCalc()
 	}, [expr])
 
+	const handleEqual: MouseEventHandler = () => {
+		setExpr(String(result))
+	}
+
 	const handleClear: MouseEventHandler = () => {
 		setExpr("")
 		setResult("")
 	}
 
 	const handleDigiOp = (digit: string) => {
-		if((digit >= '0' && digit <= '9') || digit === '+' || digit ===	'-' || digit === '×' || digit === '÷') {
+		if (
+			(digit >= '0' && digit <= '9') || 
+			digit === '.' || digit === '+' || 
+			digit ===	'-' || digit === '×' || 
+			digit === '÷' || digit === '(' || digit === ')') {
 			setExpr(prevExpr => prevExpr + digit)
 		}
 	}
 
-	const buttons: string[] = ['7', '8', '9', 'C', '4', '5', '6', '+', '1', '2', '3', '-', '0', '=', '÷', '×']
+	const buttons: string[] = [
+		'(', ')', '<', 'C',
+		'7', '8', '9', '+',
+		'4', '5', '6', '-',
+		'1', '2', '3', '÷',
+		'.', '0', '=', '×'
+	]
 
 	const buttonElements = buttons.map((button, index) => {
 		let type: string = 'digit'
@@ -44,6 +58,14 @@ function App() {
 		if (button === 'C') {
 			type = 'clear'
 			handleClick = handleClear
+		}
+		else if (button === '=') {
+			type = 'equal'
+			handleClick = handleEqual
+		}
+		else if(button === '<') {
+			type = 'back'
+			handleClick = () => setExpr(prevExpr => prevExpr.slice(0, -1))
 		}
 		else if (button === '+' || button === '-' || button === '×' || button === '÷') {
 			type = 'operation'

@@ -5,14 +5,11 @@
 	font-family: Abel, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-html {
-	background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.95));
-}
-
 body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background-color: #001;
 }
 
 .App {
@@ -33,7 +30,7 @@ body {
 	background-color: transparent;
 	color: white;
 	border: none;
-	border-bottom: 1px solid white;
+	border-bottom: 1px solid #AAA;
 	text-align: right;
 	font-size: 2rem;
 	margin-bottom: 1em;
@@ -45,18 +42,22 @@ body {
 
 .btn-box {
 	display: grid;
-	grid-template-rows: repeat(4, 1fr);
+	grid-template-rows: repeat(5, 1fr);
 	grid-template-columns: repeat(4, 1fr);
 	gap: 1rem;
 }
 
 .calc-btn {
-	padding: 2em;
+	padding: 1.5em;
 	border-radius: 2px;
-	border: 0;
-	font-size: 1em;
-	font-weight: 700;
-	background-color: #191919;
+	font-size: 1.1em;
+	font-weight: 500;
+	background-color: transparent;
 	color: white;
-	backdrop-filter: blur(px);
+	border: 1px solid #AAA;
+}
+	
+.calc-btn.clear {
+	background-color: white;
+	color: #191919;
 }
